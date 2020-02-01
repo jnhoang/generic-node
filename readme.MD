@@ -1,4 +1,5 @@
-first commit
+Testing building/deploying node babel app in heroku
+
 
 # Starting up
 - clone
@@ -14,3 +15,8 @@ first commit
 - via heroku
 - runs the command found in `Procfile`: `npm run start`
 - `git push heroku master`
+
+
+## packages
+- uses [babel-node](https://babeljs.io/docs/en/next/babel-node.html) for develop
+- uses babel to compile to es5 code
