@@ -15,6 +15,7 @@ Testing building/deploying node babel app in heroku
 - via heroku
 - runs the command found in `Procfile`: `npm run start`
 - `git push heroku master`
+- also deploys automatically on merge to master branch
 
 
 ## packages
