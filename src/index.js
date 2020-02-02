@@ -6,7 +6,6 @@ import bodyParser from 'body-parser'
 
 const print =  console.log;
 const app   =  express();
-const PORT  =  process.env.PORT || 3000;
 
 // settings
 app.use(bodyParser.json());
@@ -27,6 +26,7 @@ app.get('/api/lifecheck', (req, res) => {
 });
 
 // listener
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   print(`listening on port ${PORT}`);
 });
