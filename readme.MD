@@ -11,6 +11,7 @@ Testing building/deploying node babel app in heroku
 - `npm run develop` - use in development
 - `npm run start` - run prod execution
 
+
 # deploy
 - via heroku
 - runs the command found in `Procfile`: `npm run start`
@@ -18,6 +19,13 @@ Testing building/deploying node babel app in heroku
 - also deploys automatically on merge to master branch
 
 
+# route handlers
+- infrastructure to handle separations of concern
+- handler code should be separated to deal with a specific feature (discord, jira, slack, etc)
+- connected via the `/src/index.js and app.use()`
+  - note: can also add a callback middleware for auth
+
 ## packages
 - uses [babel-node](https://babeljs.io/docs/en/next/babel-node.html) for develop
 - uses babel to compile to es5 code
+

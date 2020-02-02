@@ -12,7 +12,10 @@ const PORT  =  process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+
 // modules
+app.use('/api/discord', require('./route_handlers/discord'));
+
 app.get('/', (req, res) => {
   print('hello from /');
   res.send('new response');
