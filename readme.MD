@@ -29,3 +29,7 @@ Testing building/deploying node babel app in heroku
 - uses [babel-node](https://babeljs.io/docs/en/next/babel-node.html) for develop
 - uses babel to compile to es5 code
 
+
+## database
+- todo
+- https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres

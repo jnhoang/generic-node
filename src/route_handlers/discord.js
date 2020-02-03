@@ -22,9 +22,9 @@ const interactions = [
   },
   {
     'trigger'  :  'hard mode',
-    'response' :  'hmm, that reminds me of the time that Alex \
+    'response' :  `hmm, that reminds me of the time that <@${process.env.ALEX_ID}> \
      went into a dungeon on hard mode with low level gear \
-     and the the group kept dying :joy:'
+     and the the group kept dying :joy:`
   },
 
 ]
