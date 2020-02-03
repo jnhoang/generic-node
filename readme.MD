@@ -31,6 +31,9 @@ Testing building/deploying node babel app in heroku
 - uses babel to compile to es5 code
 
 
+## database
+- todo
+- https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres
 
 
 # TODO
