@@ -26,6 +26,7 @@ Testing building/deploying node babel app in heroku
   - note: can also add a callback middleware for auth
 
 ## packages
+- **NOTE** - installing new packages require normally dev-dependent packages to be installed to regular dependencies in order to be correctly deployed to heroku (where it's hosted)
 - uses [babel-node](https://babeljs.io/docs/en/next/babel-node.html) for develop
 - uses babel to compile to es5 code
 
