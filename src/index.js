@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/api/discord', require('./route_handlers/discord'));
 
 app.get('/', (req, res) => {
-  print('hello from /');
-  res.send('new response');
+  // print('hello from /');
+  res.send("hmm hello, I'm awake!");
 });
 app.get('/api/lifecheck', (req, res) => {
   print('hello from /');
