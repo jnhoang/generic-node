@@ -35,7 +35,7 @@ bot.on('message', msg => {
   // print('contains: ', msg.content.includes('pong'))
 
   interactions.forEach( interaction => {
-    if (msg.content.includes(interaction.trigger)) {
+    if (msg.content.toLowerCase().includes(interaction.trigger)) {
       msg.channel.send(interaction.response);
     }
   });
