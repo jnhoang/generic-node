@@ -42,3 +42,8 @@ Testing building/deploying node babel app in heroku
   - add a anime bio inserter
     - command: give <user> a anime bio
     - result: return a funny anime bio and change user's description to include that bio
+### using sql files
+- uses psql cli
+  - w flag prompts for password
+  - psql -h <HOST> -U <USER> -d <DATABASE> -W sslmode=require
+
