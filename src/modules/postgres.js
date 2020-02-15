@@ -10,9 +10,28 @@ const conn_values = {
 }
 
 export const select_sql = async(query) => {
-  const pool   =  new Pool(conn_values);
-  const client =  await pool.connect()
-  const res    =  await client.query(query)
-  client.release()
-  return res;
+  try{
+    const pool   =  new Pool(conn_values);
+    const client =  await pool.connect();
+    const res    =  await client.query(query);
+    client.release();
+    return res;
+  }
+  catch(err) {
+    console.log(`postgres.select_sql error: ${err}`)
+    return {}
+  }
+}
+
+export const process_sql_rows = () => {
+  [
+    {
+      interaction_id :  1,
+      description    :  'secret world of richard scary',
+      trigger        :  'time to love and play',
+      response       :  '%scgV3vdOT09I',
+      env_vars       :  'YOUTUBE_VIDEO_URL',
+    }
+  ]
+
 }
