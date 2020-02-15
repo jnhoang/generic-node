@@ -2,7 +2,7 @@
 import 'dotenv/config'
 import express from 'express'
 import bodyParser from 'body-parser'
-
+import { select_sql } from './modules/postgres'
 
 const print =  console.log;
 const app   =  express();
@@ -28,6 +28,13 @@ app.get('/api/lifecheck', (req, res) => {
 // listener
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
+  main()
   print(`listening on port ${PORT}`);
 });
 
+
+const main = async() => {
+  const res =  await select_sql(process.env.SELECT_INTERACTION_QUERY)
+  print('2 - main rows: ', res.rows)
+  // store this result in a redis cache
+}

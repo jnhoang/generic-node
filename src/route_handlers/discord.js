@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import express from 'express'
 import Discord from 'discord.js'
-
+import { select_sql } from '../modules/postgres'
 
 const print  =  console.log;
 const router =  express.Router();
@@ -10,37 +10,23 @@ const bot = new Discord.Client();
 bot.login(process.env.DISCORD_TOKEN);
 
 
-bot.on('ready', () => {
+bot.on('ready', async() => {
   console.info(`Logged in as ${bot.user.tag}!`);
-});
+  const res          =  await select_sql(process.env.SELECT_INTERACTION_QUERY)
+  const interactions =  res.rows.map( (row) => ({ trigger: row.trigger, response: row.response } ));
 
-
-const interactions = [
-  {
-    'trigger'  :  'ping',
-    'response' :  'pong'
-  },
-  {
-    'trigger'  :  'hard mode',
-    'response' :  `hmm, that reminds me of the time that <@${process.env.ALEX_ID}> \
-     went into a dungeon on hard mode with low level gear \
-     and the the group kept dying :joy:`
-  },
-
-]
-
-bot.on('message', msg => {
-  // print('msg: ', msg)
-  // print('msg.content: ', msg.content)
-  // print('contains: ', msg.content.includes('pong'))
-
-  interactions.forEach( interaction => {
-    if (msg.content.toLowerCase().includes(interaction.trigger)) {
-      msg.channel.send(interaction.response);
-    }
+  bot.on('message', msg => {
+    interactions.forEach( interaction => {
+      if (msg.content.toLowerCase().includes(interaction.trigger)) {
+        msg.channel.send(interaction.response);
+      }
+    });
   });
+})
 
-});
+
+
+
 
 
 router.get('/lifecheck', (req, res) => {
@@ -50,3 +36,5 @@ router.get('/lifecheck', (req, res) => {
 
 
 export default router;
+
+
