@@ -1,6 +1,3 @@
--- CREATE DB
-DROP DATABASE IF EXISTS bjd_db;
-CREATE DATABASE bjd_db;
 
 -- CREATE TABLE
 CREATE TABLE kawaii_users (

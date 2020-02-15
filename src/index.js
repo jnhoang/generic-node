@@ -2,7 +2,10 @@
 import 'dotenv/config'
 import express from 'express'
 import bodyParser from 'body-parser'
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 const print =  console.log;
 const app   =  express();
@@ -30,4 +33,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   print(`listening on port ${PORT}`);
 });
-
