@@ -1,10 +1,13 @@
 import 'dotenv/config'
-import express        from 'express'
-import Discord        from 'discord.js'
-import { select_sql } from '../modules/postgres'
+import {config} from '../../config.js/index.js'
 
-const print  =  console.log;
-const router =  express.Router();
+import express  from 'express'
+import Discord  from 'discord.js'
+
+const print        =  console.log;
+const router       =  express.Router();
+const interactions =  config.interactions;
+const users        =  config.users;
 
 const bot = new Discord.Client();
 bot.login(process.env.DISCORD_TOKEN);
@@ -15,18 +18,19 @@ bot.login(process.env.DISCORD_TOKEN);
 */
 bot.on('ready', async() => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  const res          =  await select_sql(process.env.SELECT_INTERACTION_QUERY)
-  const interactions =  res.rows.map( (row) => ({ trigger: row.trigger, response: row.response } ));
-
-  bot.on('message', msg => {
-    interactions.forEach( interaction => {
-      if (msg.content.toLowerCase().includes(interaction.trigger)) {
-        msg.channel.send(interaction.response);
-      }
-    });
-  });
 })
 
+
+bot.on('message', msg => {
+  if (msg.content.toLowerCase().includes('feefi')) {
+    msg.channel.send('<@171417050328203264> what');
+  }
+  interactions.forEach( interaction => {
+    if (msg.content.toLowerCase().includes(interaction.trigger)) {
+      msg.channel.send(interaction.response);
+    }
+  });
+});
 
 
 
