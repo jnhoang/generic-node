@@ -13,17 +13,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 // modules
-app.use('/api/discord', require('./route_handlers/discord'));
-
 app.get('/', (req, res) => {
   // print('hello from /');
   res.send("hmm hello, I'm awake!");
 });
-app.get('/api/lifecheck', (req, res) => {
-  print('hello from /');
-  print('test_value: ', process.env.TEST_VALUE)
-  res.send('new response');
+app.get('/lifecheck', (req, res) => {
+  res.send("hmm hello, what is it!");
 });
+
 
 // listener
 const PORT = process.env.PORT || 3000;
